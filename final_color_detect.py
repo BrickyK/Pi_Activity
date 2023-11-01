@@ -24,7 +24,16 @@ cap = cv2.VideoCapture(00000000)
 last_detection_time = {'Blue': 0, 'Pink': 0, 'Yellow': 0}
 
 #define a time interval to display the printed message
-time_for_message = .6
+time_for_message = .62
+
+content_detection_timer = time.time()
+
+#create a dictionary for contents
+cargo = {'Blue': 'Coal', 'Pink': 'Molten Phenol', 'Yellow': 'Chicken'}
+
+contamination = {'Coal': 1, 'Molten Phenol': 10, 'Chicken': 0}
+
+contamination_level = 0
 
 #define a function to create colors
 def create_color(value1, value2, value3):
@@ -77,8 +86,8 @@ while True:
     lower_blue = create_color(75, 80, 100)
     upper_blue = create_color(100, 255, 255)
 
-    lower_pink = create_color(160, 100, 150)
-    upper_pink = create_color(175, 255, 255)
+    lower_pink = create_color(140, 50, 50)
+    upper_pink = create_color(170, 255, 255)
 
     lower_yellow = create_color(32, 100, 100)
     upper_yellow = create_color(60, 255, 255)
@@ -102,9 +111,28 @@ while True:
     frame_with_center = cv2.circle(frame.copy(), (center_x, center_y), 5, (0, 0, 255), -1)  # Draw a red circle on the center pixel
     cv2.imshow('frame', frame_with_center)
 
+    detected_color = None
+    content = None
+    if detect_blue == '1':
+        detected_color = 'Blue'
+    elif detect_pink == '1':
+        detected_color = 'Pink'
+    elif detect_yellow == '1':
+        detected_color = 'Yellow'
+
+    current_time = time.time()  # Get the current time
+    if detected_color and (current_time - content_detection_timer >= time_for_message):
+        content = cargo.get(detected_color)
+        contamination_level += contamination.get(content, 0)
+        content_detection_timer = current_time  # Reset the timer
+
+    if content:
+        print(f'Content: {content}, Contamination Level: {contamination_level}')
     # Create a way to kill the program
     if cv2.waitKey(1) == ord('q'):
         break
+    elif cv2.waitKey(1) == ord('e'):
+        contamination_level == 0
 
 
 cap.release()
