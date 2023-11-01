@@ -1,6 +1,6 @@
 from tkinter import *
 import os
-from final_detect import *
+from color import *
 
 window = Tk()
 window.title("Test")
@@ -54,5 +54,7 @@ img.pack()
 ######################################################################
 # Button to start Bricky's Code
 
+# hello
+
 scanCargo = Button(window, text="Scan Cargo", command=start)
-scanCargo.pack()
+scanCargo.pack() 
