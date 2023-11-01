@@ -50,3 +50,9 @@ smallerimg = image.subsample(2, 2)
 img = Label(trackFrame, image=smallerimg)
 img.image = image
 img.pack()
+
+######################################################################
+# Button to start Bricky's Code
+
+scanCargo = Button(window, text="Scan Cargo", command=start)
+scanCargo.pack()
