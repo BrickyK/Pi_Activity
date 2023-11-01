@@ -1,6 +1,6 @@
 from tkinter import *
 import os
-from color import *
+#from color import *
 
 window = Tk()
 window.title("Test")
@@ -56,5 +56,4 @@ img.pack()
 
 # hello
 
-scanCargo = Button(window, text="Scan Cargo", command=start)
-scanCargo.pack() 
+scanCargo = Button(window, text="Scan Cargo").grid(row=3, column=0, columnspan=2)
