@@ -66,38 +66,39 @@ def print_detected_color(value, color):
         print(f'{color} Detected')
         last_detection_time[color] = current_time
 
-
-# ... (your previous code)
+def reset_counter(value):
+    value = 0
+    return value
 
 while True:
-    # Get a frame from the capture device
+    # get a frame from the camera
     ret, frame = cap.read()
     width = int(cap.get(3))
     height = int(cap.get(4))
 
-    # Calculate the coordinates of the center pixel
+    #calculate the coordinates of the center pixel
     center_x = width // 2
     center_y = height // 2
 
-    # Convert the center pixel to HSV color
+    #convert the center pixel to HSV color
     center_pixel_hsv = cv2.cvtColor(frame[center_y, center_x].reshape(1, 1, 3), cv2.COLOR_BGR2HSV)
 
-    # Define your color ranges
+    #define your color ranges
     lower_blue = create_color(75, 80, 100)
     upper_blue = create_color(100, 255, 255)
 
-    lower_pink = create_color(140, 50, 50)
-    upper_pink = create_color(170, 255, 255)
+    lower_pink = create_color(160, 50, 50)
+    upper_pink = create_color(175, 255, 255)
 
     lower_yellow = create_color(32, 100, 100)
     upper_yellow = create_color(60, 255, 255)
 
-    # Check if the center pixel matches any of the color ranges
+    #check if the center pixel matches any of the color ranges
     is_center_pixel_blue = cv2.inRange(center_pixel_hsv, lower_blue, upper_blue) > 0
     is_center_pixel_pink = cv2.inRange(center_pixel_hsv, lower_pink, upper_pink) > 0
     is_center_pixel_yellow = cv2.inRange(center_pixel_hsv, lower_yellow, upper_yellow) > 0
 
-    # Process the center pixel results through detecting_colors and print_detected_color functions
+    #process the center pixel results through detecting_colors and print_detected_color functions
     detect_blue = detecting_colors(is_center_pixel_blue)
     print_detected_color(detect_blue, 'Blue')
     
@@ -107,7 +108,7 @@ while True:
     detect_yellow = detecting_colors(is_center_pixel_yellow)
     print_detected_color(detect_yellow, 'Yellow')
 
-    # Display the center pixel with a circle
+    #display the center pixel with a circle
     frame_with_center = cv2.circle(frame.copy(), (center_x, center_y), 5, (0, 0, 255), -1)  # Draw a red circle on the center pixel
     cv2.imshow('frame', frame_with_center)
 
@@ -128,11 +129,11 @@ while True:
 
     if content:
         print(f'Content: {content}, Contamination Level: {contamination_level}')
-    # Create a way to kill the program
+    # Create a way to kill the program and reset the contamination level
     if cv2.waitKey(1) == ord('q'):
         break
-    elif cv2.waitKey(1) == ord('e'):
-        contamination_level == 0
+    if cv2.waitKey(1) == ord('r'):
+        contamination_level = counter_reset(contamination_level)
 
 
 cap.release()
