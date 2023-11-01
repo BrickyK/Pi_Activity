@@ -1,5 +1,6 @@
 from tkinter import *
 import os
+from final_detect import *
 
 window = Tk()
 window.title("Test")
