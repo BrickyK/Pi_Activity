@@ -1,25 +1,13 @@
-pi@raspberrypi:~ $ sudo apt-get install build-essential cmake pkg-config libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libxvidcore-dev libx264-dev libx265-dev libgtk2.0-dev libatlas-base-dev gfortran libhdf5-dev libhdf5-serial-dev
-Reading package lists... Done
-Building dependency tree       
-Reading state information... Done
-Note, selecting 'libhdf5-dev' instead of 'libhdf5-serial-dev'
-build-essential is already the newest version (12.6).
-gfortran is already the newest version (4:8.3.0-1+rpi2).
-gfortran set to manually installed.
-libjpeg-dev is already the newest version (1:1.5.2-2+deb10u1).
-libjpeg-dev set to manually installed.
-pkg-config is already the newest version (0.29-6).
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
-
-The following packages have unmet dependencies:
- libgtk2.0-dev : Depends: libgdk-pixbuf2.0-dev (>= 2.21.0) but it is not going to be installed
-                 Depends: libpango1.0-dev (>= 1.20) but it is not going to be installed
-                 Depends: libcairo2-dev (>= 1.6.4-6.1) but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
+Traceback (most recent call last):
+  File "/home/pi/RpiImlpimentation/color.py", line 13, in <module>
+    import cv2
+  File "/usr/local/lib/python3.7/dist-packages/cv2/__init__.py", line 181, in <module>
+    bootstrap()
+  File "/usr/local/lib/python3.7/dist-packages/cv2/__init__.py", line 153, in bootstrap
+    native_module = importlib.import_module("cv2")
+  File "/usr/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ImportError: libcblas.so.3: cannot open shared object file: No such file or directory
 
 
 sudo apt-get install build-essential cmake pkg-config libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libxvidcore-dev libx264-dev libx265-dev libgtk2.0-dev libatlas-base-dev gfortran libhdf5-dev libhdf5-serial-dev
