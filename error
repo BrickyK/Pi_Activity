@@ -47,3 +47,5 @@ Collecting opencv-python
   
   ----------------------------------------
 Command "/usr/bin/python -m pip install --ignore-installed --no-user --prefix /tmp/pip-build-env-MKWOt5 --no-warn-script-location --no-binary :none: --only-binary :none: -i https://pypi.org/simple --extra-index-url https://www.piwheels.org/simple -- setuptools wheel scikit-build cmake pip "numpy==1.11.3; python_version=='3.5'" "numpy==1.13.3; python_version=='3.6'" "numpy==1.14.5; python_version=='3.7'" "numpy==1.17.3; python_version>='3.8'"" failed with error code 2 in None
+
+sudo apt-get install build-essential cmake pkg-config libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libxvidcore-dev libx264-dev libx265-dev libgtk2.0-dev libatlas-base-dev gfortran libhdf5-dev libhdf5-serial-dev
