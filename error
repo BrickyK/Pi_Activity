@@ -1,51 +1,25 @@
-pi@raspberrypi:~ $ pip install opencv-python
-Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
-Collecting opencv-python
-  Using cached https://files.pythonhosted.org/packages/a1/d6/8422797e35f8814b1d9842530566a949d9b5850a466321a6c1d5a99055ee/opencv-python-4.3.0.38.tar.gz
-  Installing build dependencies ... error
-  Complete output from command /usr/bin/python -m pip install --ignore-installed --no-user --prefix /tmp/pip-build-env-MKWOt5 --no-warn-script-location --no-binary :none: --only-binary :none: -i https://pypi.org/simple --extra-index-url https://www.piwheels.org/simple -- setuptools wheel scikit-build cmake pip "numpy==1.11.3; python_version=='3.5'" "numpy==1.13.3; python_version=='3.6'" "numpy==1.14.5; python_version=='3.7'" "numpy==1.17.3; python_version>='3.8'":
-  Ignoring numpy: markers 'python_version == "3.5"' don't match your environment
-  Ignoring numpy: markers 'python_version == "3.6"' don't match your environment
-  Ignoring numpy: markers 'python_version == "3.7"' don't match your environment
-  Ignoring numpy: markers 'python_version >= "3.8"' don't match your environment
-  Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple, https://www.piwheels.org/simple
-  Collecting setuptools
-    Using cached https://files.pythonhosted.org/packages/e1/b7/182161210a13158cd3ccc41ee19aadef54496b74f2817cc147006ec932b4/setuptools-44.1.1-py2.py3-none-any.whl
-  Collecting wheel
-    Using cached https://files.pythonhosted.org/packages/27/d6/003e593296a85fd6ed616ed962795b2f87709c3eee2bca4f6d0fe55c6d00/wheel-0.37.1-py2.py3-none-any.whl
-  Collecting scikit-build
-    Using cached https://files.pythonhosted.org/packages/7f/2e/38a9bd6b7b270e50d9265f9463a22d24cbbf8484d918764e281bbfe1a9ab/scikit-build-0.16.0.tar.gz
-  Exception:
-  Traceback (most recent call last):
-    File "/usr/lib/python2.7/dist-packages/pip/_internal/cli/base_command.py", line 143, in main
-      status = self.run(options, args)
-    File "/usr/lib/python2.7/dist-packages/pip/_internal/commands/install.py", line 338, in run
-      resolver.resolve(requirement_set)
-    File "/usr/lib/python2.7/dist-packages/pip/_internal/resolve.py", line 102, in resolve
-      self._resolve_one(requirement_set, req)
-    File "/usr/lib/python2.7/dist-packages/pip/_internal/resolve.py", line 256, in _resolve_one
-      abstract_dist = self._get_abstract_dist_for(req_to_install)
-    File "/usr/lib/python2.7/dist-packages/pip/_internal/resolve.py", line 209, in _get_abstract_dist_for
-      self.require_hashes
-    File "/usr/lib/python2.7/dist-packages/pip/_internal/operations/prepare.py", line 298, in prepare_linked_requirement
-      abstract_dist.prep_for_dist(finder, self.build_isolation)
-    File "/usr/lib/python2.7/dist-packages/pip/_internal/operations/prepare.py", line 100, in prep_for_dist
-      self.req.load_pyproject_toml()
-    File "/usr/lib/python2.7/dist-packages/pip/_internal/req/req_install.py", line 428, in load_pyproject_toml
-      str(self)
-    File "/usr/lib/python2.7/dist-packages/pip/_internal/pyproject.py", line 43, in load_pyproject_toml
-      pp_toml = pytoml.load(f)
-    File "/usr/share/python-wheels/pytoml-0.1.2-py2.py3-none-any.whl/pytoml/parser.py", line 303, in load
-      filename=fin.name)
-    File "/usr/share/python-wheels/pytoml-0.1.2-py2.py3-none-any.whl/pytoml/parser.py", line 370, in loads
-      toks.expect('=', 'expected_equals')
-    File "/usr/share/python-wheels/pytoml-0.1.2-py2.py3-none-any.whl/pytoml/parser.py", line 250, in expect
-      self.error(error_text)
-    File "/usr/share/python-wheels/pytoml-0.1.2-py2.py3-none-any.whl/pytoml/parser.py", line 253, in error
-      raise TomlError(message, self.pos[0][0], self.pos[0][1], self._filename)
-  TomlError: /tmp/pip-install-IhTNVn/scikit-build/pyproject.toml(49, 7): expected_equals
-  
-  ----------------------------------------
-Command "/usr/bin/python -m pip install --ignore-installed --no-user --prefix /tmp/pip-build-env-MKWOt5 --no-warn-script-location --no-binary :none: --only-binary :none: -i https://pypi.org/simple --extra-index-url https://www.piwheels.org/simple -- setuptools wheel scikit-build cmake pip "numpy==1.11.3; python_version=='3.5'" "numpy==1.13.3; python_version=='3.6'" "numpy==1.14.5; python_version=='3.7'" "numpy==1.17.3; python_version>='3.8'"" failed with error code 2 in None
+pi@raspberrypi:~ $ sudo apt-get install build-essential cmake pkg-config libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libxvidcore-dev libx264-dev libx265-dev libgtk2.0-dev libatlas-base-dev gfortran libhdf5-dev libhdf5-serial-dev
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Note, selecting 'libhdf5-dev' instead of 'libhdf5-serial-dev'
+build-essential is already the newest version (12.6).
+gfortran is already the newest version (4:8.3.0-1+rpi2).
+gfortran set to manually installed.
+libjpeg-dev is already the newest version (1:1.5.2-2+deb10u1).
+libjpeg-dev set to manually installed.
+pkg-config is already the newest version (0.29-6).
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ libgtk2.0-dev : Depends: libgdk-pixbuf2.0-dev (>= 2.21.0) but it is not going to be installed
+                 Depends: libpango1.0-dev (>= 1.20) but it is not going to be installed
+                 Depends: libcairo2-dev (>= 1.6.4-6.1) but it is not going to be installed
+E: Unable to correct problems, you have held broken packages.
+
 
 sudo apt-get install build-essential cmake pkg-config libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libxvidcore-dev libx264-dev libx265-dev libgtk2.0-dev libatlas-base-dev gfortran libhdf5-dev libhdf5-serial-dev
